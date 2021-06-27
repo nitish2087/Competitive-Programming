@@ -1,45 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
-//--------iterative--------
-/*void dfs(vector<int>v[],int n,int st){
-	stack<int>s;
-	vector<bool>visited(n,false);
-	s.push(st);
-	visited[st]=true;
-	while(!s.empty()){
-		int t=s.top();
-		cout<<s.top()<<" ";
-		s.pop();
-		for(auto i=v[t].begin();i<v[t].end();i++){
-			if(!visited[*i]){
-				s.push(*i);
-				visited[*i]=true;
-			}
+
+void addEdge(vector<int>w[],int u,int v){
+	w[u].push_back(v);
+	//w[v].push_back(u);
+}
+
+void DFSUtil(int i, vector<int> v[],vector<bool> &visited){
+	visited[i]=true;
+	cout<<i<<" ";
+	for(int j=0;j<v[i].size();j++){
+		if(visited[v[i][j]]==false){
+			DFSUtil(v[i][j],v,visited);
 		}
 	}
-}*/
-//-------recursive--------
-void dfs(vector<int>v[],int s,vector<bool>&visited){
-	visited[s]=true;
-	cout<<s<<" ";
-	for(auto i=v[s].begin();i<v[s].end();i++){
-		if(!visited[*i]){
-			dfs(v,*i,visited);
+}
+
+void DFS(vector<int> v[],int V){
+	vector<bool> visited(V,false);
+	for(int i=0;i<V;i++){
+		if(visited[i]==false){
+			DFSUtil(i,v,visited);
 		}
 	}
 }
 
 
 int main(){
-	int n,m,a,b;
-	cin>>n>>m;
-	vector<int>v[n];
-	while(m--){
-		cin>>a>>b;
-		v[a].push_back(b);
-		v[b].push_back(a);
+	int t;
+	cin>>t;
+	while(t--){
+		int n,e,u,v;
+		cin>>n>>e;
+		vector<int>graph[n];
+		for(int i=0;i<e;i++){
+			cin>>u>>v;
+			addEdge(graph,u,v);
+
+		}
+		DFS(graph,n);
+		cout<<endl;
 	}
-	vector<bool>visited(n,false);
-	dfs(v,0,visited);
 	return 0;
 }
