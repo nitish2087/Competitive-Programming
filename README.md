@@ -1,10 +1,11 @@
-# Competitive-Programming
+## Competitive-Programming
 Important cp solutions
 
-# Contributing Guide
+## Contributing Guide
 - Clone git repo
 - Add new solutions
 - Modify existing solutions
-- Send a pull request.  
-Thanks
+- Send a pull request to master branch.  
+  
+#### Thanks
 
