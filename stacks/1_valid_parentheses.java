@@ -25,11 +25,11 @@ Output: false
 
 /*
 Solution:
-Create two list and do following operations as you traverse the parentheses string:
+Create two lists(see below) and do following operations as you traverse the parentheses string conditionally:
 l1 = ['(', '[', '{'] - insert in stack
 l2 = [')', ']', '}'] - pop if key in map match with top element, else return false.
 map= { ')' : '(', ']' : '[', '}' : '{'}
-If stack is empty in end, return else false.
+If stack is empty in end, return true else false.
 */
 
 class Solution {
