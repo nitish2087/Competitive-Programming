@@ -48,8 +48,22 @@ class Solution {
         return nums.length - i;
     }
 }
+2. Using tree set
 
-2. [Better space]
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        Set<Integer> st = new TreeSet<Integer>();
+        st.addAll(IntStream.of(nums).boxed().collect(Collectors.toList()));
+        Iterator<Integer> it = st.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            nums[i++] = it.next();
+        }
+        return st.size();
+    }
+}
+
+3. [Better space]
 */
 class Solution {
     public int removeDuplicates(int[] nums) {
