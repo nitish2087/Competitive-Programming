@@ -64,7 +64,7 @@ class Solution {
 }
 
 3. [Better space]
-*/
+
 class Solution {
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
@@ -90,6 +90,26 @@ class Solution {
             }
         }
         return n - result; 
+    }
+}
+
+4. Better place and code
+*/
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums == null) return 0;
+        if (nums.length == 1) return 1;
+        int result = 0;
+        int size = nums.length;
+        for (int i = 1 ; i < size; i++) {
+            if (nums[i] == nums[i-1]) {
+                nums [i-1] = 101;
+                result++;
+            }
+        }
+        Arrays.sort(nums);
+        return size - result;
     }
 }
 
