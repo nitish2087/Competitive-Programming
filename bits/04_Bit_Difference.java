@@ -32,6 +32,7 @@ Constraints:
 1 ≤ A, B ≤ 10^6
 */
 
+/*
 class Solution{
     
     // Function to find number of bits needed to be flipped to convert A to B
@@ -47,3 +48,21 @@ class Solution{
         return result;
     }
 }
+*/
+
+class Solution{   
+    // Function to find number of bits needed to be flipped to convert A to B
+    public static int countBitsFlip(int a, int b){
+        int result = 0;
+        int temp = a ^ b;
+        while (temp > 0) {
+            if ((temp&1) == 1) {
+                result++;
+            }
+            temp >>>= 1;
+        }
+        return result;
+    }
+}
+
+
